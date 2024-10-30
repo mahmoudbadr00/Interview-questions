@@ -4,8 +4,8 @@ const urlsToCache = [
   '/',
   '/index.html',
   '/manifest.json',
-  '/mylogo192.png',
-  '/mylogo512.png',
+  '/mylogo192.jpg',
+  '/mylogo512.jpg',
 ];
 
 // تثبيت Service Worker

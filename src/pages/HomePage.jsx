@@ -127,6 +127,7 @@ import {
   Typography,
   Box,
   IconButton,
+  useTheme,
 } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { sections } from '../data';
@@ -135,7 +136,7 @@ import { useState, useEffect } from 'react';
 const HomePage = () => {
   const navigate = useNavigate();
   const [favorites, setFavorites] = useState([]);
-
+  const theme = useTheme();
   useEffect(() => {
     const storedFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
     setFavorites(storedFavorites);
@@ -176,7 +177,7 @@ const HomePage = () => {
           gutterBottom 
           align="center"
           sx={{ 
-            color: 'black',
+            color: 'text.primary',
             mb: 4,
             fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' }
           }}
@@ -193,6 +194,7 @@ const HomePage = () => {
                 transition: 'transform 0.2s',
                 cursor: 'pointer',
                 width: '100%',
+                bgcolor: 'background.paper',
                 '&:hover': {
                   transform: 'translateX(10px)',
                 }
@@ -203,7 +205,7 @@ const HomePage = () => {
                 sx={{
                   justifyContent: 'space-between',
                   '&:hover': {
-                    backgroundColor: 'rgba(0, 0, 0, 0.04)',
+                    backgroundColor: theme.palette.action.hover,
                   }
                 }}
               >
@@ -212,7 +214,7 @@ const HomePage = () => {
                   sx={{
                     textAlign: 'center',
                     '& .MuiTypography-root': {
-                      color: 'black',
+                      color: 'text.primary',
                       fontWeight: 'bold',
                     },
                   }}
@@ -223,7 +225,7 @@ const HomePage = () => {
                 >
                   <FavoriteIcon 
                     sx={{ 
-                      color: favorites.includes(section.id) ? 'red' : 'grey',
+                      color: favorites.includes(section.id) ? 'error.main' : 'action.disabled',
                       transition: 'color 0.3s ease'
                     }} 
                   />

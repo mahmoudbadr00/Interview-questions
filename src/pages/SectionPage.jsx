@@ -8,6 +8,8 @@ import {
   AccordionDetails,
   Box,
   IconButton,
+  useTheme,
+  alpha
 } from '@mui/material';
 import { ExpandMore } from '@mui/icons-material';
 import CloseIcon from '@mui/icons-material/Close';
@@ -18,7 +20,7 @@ const SectionPage = () => {
   const section = sections.find((s) => s.id === sectionId);
   const questions = faqData[sectionId] || [];
   const [markedQuestions, setMarkedQuestions] = useState(new Set());
-
+  const theme = useTheme();
   useEffect(() => {
     const savedMarked = localStorage.getItem(`marked-${sectionId}`);
     if (savedMarked) {
@@ -69,10 +71,11 @@ const SectionPage = () => {
           gutterBottom
           align="center"
           sx={{
-            color: 'black',
+            color: 'text.primary',
             mb: 4,
             fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
             fontFamily: 'Tajawal, Arial, sans-serif',
+            fontWeight: 500,
           }}
         >
           {section?.name}
@@ -104,10 +107,10 @@ const SectionPage = () => {
                   mb: 2,
                   cursor: 'pointer',
                   width: '100%',
-                  backgroundColor: isMarked ? 'rgba(255, 0, 0, 0.1)' : 'inherit',
+                  backgroundColor: isMarked ? alpha(theme.palette.error.main, 0.1) : 'background.paper',
                   transition: 'background-color 0.3s ease',
                   '&:hover': {
-                    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                    boxShadow: theme.shadows[1],
                   },
                 }}
               >
@@ -115,7 +118,7 @@ const SectionPage = () => {
                   expandIcon={<ExpandMore />}
                   sx={{
                     '&:hover': {
-                      backgroundColor: 'rgba(0, 0, 0, 0.04)',
+                      backgroundColor: theme.palette.action.hover,
                     },
                   }}
                 >
@@ -153,6 +156,7 @@ const SectionPage = () => {
                         fontFamily: 'Tajawal, Arial, sans-serif',
                         flexGrow: 1,
                         pr: { xs: 0, sm: 2 },
+                        color: 'text.primary',
                       }}
                     >
                       {item.question}
@@ -164,7 +168,8 @@ const SectionPage = () => {
                     sx={{ 
                       fontFamily: 'Tajawal, Arial, sans-serif',
                       lineHeight: 1.6,
-                      textAlign: 'right'
+                      textAlign: 'right',
+                      color: 'text.primary',
                     }}
                   >
                     {item.answer.split('\n').map((line, i) => (

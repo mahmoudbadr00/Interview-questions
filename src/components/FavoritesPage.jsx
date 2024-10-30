@@ -150,6 +150,7 @@ import {
   Box,
   IconButton,
 } from '@mui/material';
+import { useTheme } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { sections } from '../data';
 import { useState, useEffect } from 'react';
@@ -158,7 +159,7 @@ const FavoritesPage = () => {
   const navigate = useNavigate();
   const [favorites, setFavorites] = useState([]);
   const [favoriteSections, setFavoriteSections] = useState([]);
-
+  const theme = useTheme();
   useEffect(() => {
     const storedFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
     setFavorites(storedFavorites);
@@ -207,7 +208,7 @@ const FavoritesPage = () => {
           gutterBottom 
           align="center"
           sx={{ 
-            color: 'black',
+            color: 'text.primary',
             mb: 4,
             fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' }
           }}
@@ -218,7 +219,7 @@ const FavoritesPage = () => {
           <Typography 
             variant="h6" 
             align="center"
-            sx={{ color: 'grey.600' }}
+            sx={{ color: 'text.secondary' }}
           >
             لا توجد عناصر في المفضلة
           </Typography>
@@ -233,6 +234,7 @@ const FavoritesPage = () => {
                   transition: 'transform 0.2s',
                   cursor: 'pointer',
                   width: '100%',
+                  bgcolor: 'background.paper',
                   '&:hover': {
                     transform: 'translateX(10px)',
                   }
@@ -243,7 +245,7 @@ const FavoritesPage = () => {
                   sx={{
                     justifyContent: 'space-between',
                     '&:hover': {
-                      backgroundColor: 'rgba(0, 0, 0, 0.04)',
+                      backgroundColor: theme.palette.action.hover,
                     }
                   }}
                 >
@@ -252,7 +254,7 @@ const FavoritesPage = () => {
                     sx={{
                       textAlign: 'center',
                       '& .MuiTypography-root': {
-                        color: 'black',
+                        color: 'text.primary',
                         fontWeight: 'bold',
                       },
                     }}
@@ -263,7 +265,7 @@ const FavoritesPage = () => {
                   >
                     <FavoriteIcon 
                       sx={{ 
-                        color: 'red',
+                        color: 'error.main',
                         transition: 'color 0.3s ease'
                       }} 
                     />

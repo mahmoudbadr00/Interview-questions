@@ -24,7 +24,7 @@ const Footer = () => {
     },
     { 
       icon: <WhatsApp />, 
-      url: 'https://wa.me/01159603177',
+      url: 'https://wa.me/201159603177',
       color: '#25d366'
     },
   ];
