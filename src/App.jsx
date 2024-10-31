@@ -3,8 +3,15 @@ import Router from './route';
 import Header from './components/Header';
 import { Box } from '@mui/material';
 import Footer from './components/Footer';
+import { ColorModeContext, useMode } from "./theme";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+
 const App = () => {
+  const [theme, colorMode] = useMode();
   return (
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
     <BrowserRouter>
       <Box sx={{ 
         display: 'flex',
@@ -26,6 +33,8 @@ const App = () => {
       </Box>
       <Footer />
     </BrowserRouter>
+    </ThemeProvider>
+    </ColorModeContext.Provider>
   );
 };
 export default App;
