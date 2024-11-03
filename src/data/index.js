@@ -15,7 +15,9 @@ export const sections = [
     { id: 'angular', name: 'Angular', color: '#02569B' },
     { id: 'vueJS', name: 'Vue JS', color: '#000000' },
     { id: 'kotlin', name: 'Kotlin', color: '#339933' }, 
-    { id: 'database', name: 'Database', color: '#02569B' }
+    { id: 'database', name: 'Database', color: '#02569B' },
+    { id: 'laravel', name: 'Laravel', color: '#701516' },
+    { id: 'uiux', name: 'UI/UX', color: '#339933' }, 
   ];
   
   export const faqData = {
@@ -899,130 +901,290 @@ export const sections = [
     ////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////
     dotnet:[
+    //   {
+    //       "question": "ما هو .NET؟",
+    //       "answer": ".NET هو إطار عمل لتطوير البرمجيات يُستخدم لبناء تطبيقات تعمل على أنظمة تشغيل متعددة، بما في ذلك Windows وLinux وmacOS."
+    //   },
+    //   {
+    //       "question": "ما هي مكونات .NET الأساسية؟",
+    //       "answer": "مكونات .NET الأساسية تشمل CLR (Common Language Runtime)، BCL (Base Class Library)، ASP.NET، وADO.NET."
+    //   },
+    //   {
+    //       "question": "ما هو CLR؟",
+    //       "answer": "CLR هو بيئة التنفيذ في .NET التي تدير تنفيذ التعليمات البرمجية، وتوفر ميزات مثل إدارة الذاكرة والأمان."
+    //   },
+    //   {
+    //       "question": "ما الفرق بين .NET Framework و .NET Core؟",
+    //       "answer": ".NET Framework هو إطار عمل قديم يدعم فقط Windows، بينما .NET Core هو إطار عمل حديث مفتوح المصدر يدعم أنظمة تشغيل متعددة."
+    //   },
+    //   {
+    //       "question": "ما هو ASP.NET؟",
+    //       "answer": "ASP.NET هو إطار عمل لتطوير تطبيقات الويب يُستخدم لبناء مواقع ويب ديناميكية وتطبيقات ويب."
+    //   },
+    //   {
+    //       "question": "ما هو ADO.NET؟",
+    //       "answer": "ADO.NET هو مجموعة من الفئات التي تُستخدم للوصول إلى البيانات وإدارتها في تطبيقات .NET، بما في ذلك الاتصال بقواعد البيانات."
+    //   },
+    //   {
+    //       "question": "ما هي MVC في ASP.NET؟",
+    //       "answer": "MVC (Model-View-Controller) هو نمط تصميم يُستخدم في ASP.NET لفصل منطق التطبيق عن واجهة المستخدم."
+    //   },
+    //   {
+    //       "question": "ما هو NuGet؟",
+    //       "answer": "NuGet هو مدير حزم .NET، يُستخدم لتثبيت وإدارة الحزم في مشاريع .NET."
+    //   },
+    //   {
+    //       "question": "ما هي الكلاسات الافتراضية في .NET؟",
+    //       "answer": "الكلاسات الافتراضية في .NET هي الكلاسات التي يمكن استخدامها كقاعدة لإنشاء كلاس آخر باستخدام الوراثة."
+    //   },
+    //   {
+    //       "question": "كيف تتعامل مع الأخطاء في .NET؟",
+    //       "answer": "يمكن التعامل مع الأخطاء في .NET باستخدام الكتل try-catch-finally."
+    //   },
+    //   {
+    //       "question": "ما هو مفهوم الـ Delegates؟",
+    //       "answer": "الـ Delegates هو نوع آمن من المؤشرات يُستخدم للإشارة إلى طريقة، مما يسمح بتمرير الطرق كمعاملات."
+    //   },
+    //   {
+    //       "question": "ما هو LINQ؟",
+    //       "answer": "LINQ (Language Integrated Query) هو ميزة في .NET تسمح بكتابة استعلامات بشكل متكامل ضمن التعليمات البرمجية."
+    //   },
+    //   {
+    //       "question": "ما هو مفهوم الـ Entity Framework؟",
+    //       "answer": "Entity Framework هو ORM (Object-Relational Mapping) يُستخدم لتسهيل التعامل مع قواعد البيانات."
+    //   },
+    //   {
+    //       "question": "ما هو مفهوم الـ Attributes في .NET؟",
+    //       "answer": "Attributes هي وسوم تُستخدم لإضافة معلومات وصفية إلى الكلاسات والخصائص والطرق."
+    //   },
+    //   {
+    //       "question": "كيف يمكنك إنشاء واجهة مستخدم باستخدام WPF؟",
+    //       "answer": "يمكنك استخدام WPF (Windows Presentation Foundation) لإنشاء واجهة مستخدم غنية تعتمد على XAML."
+    //   },
+    //   {
+    //       "question": "ما هي خدمة REST في .NET؟",
+    //       "answer": "REST (Representational State Transfer) هي نمط معماري يُستخدم لبناء خدمات ويب، ويمكن تنفيذها في .NET باستخدام ASP.NET Web API."
+    //   },
+    //   {
+    //       "question": "ما هي المزايا التي يوفرها .NET Core؟",
+    //       "answer": ".NET Core يوفر دعم الأنظمة المتعددة، الأداء العالي، قابلية التوسع، وإمكانية التشغيل عبر المنصات."
+    //   },
+    //   {
+    //       "question": "ما هو مفهوم الـ Asynchronous Programming في .NET؟",
+    //       "answer": "البرمجة غير المتزامنة في .NET تسمح بتنفيذ العمليات بشكل متزامن، مما يُحسن أداء التطبيق ويقلل من وقت الانتظار."
+    //   },
+    //   {
+    //       "question": "كيف تتعامل مع البيانات غير المتزامنة في .NET؟",
+    //       "answer": "يمكن استخدام الكلمات المفتاحية async وawait للتعامل مع العمليات غير المتزامنة."
+    //   },
+    //   {
+    //       "question": "ما هي استخدامات الـ Middleware في ASP.NET Core؟",
+    //       "answer": "الـ Middleware تُستخدم لمعالجة الطلبات والاستجابة، مثل إدارة الأمان والتوثيق وتسجيل الدخول."
+    //   },
+    //   {
+    //       "question": "كيف يمكنك تنفيذ التحقق من صحة البيانات في ASP.NET؟",
+    //       "answer": "يمكن تنفيذ التحقق من صحة البيانات باستخدام الـ Data Annotations أو باستخدام نموذج التحقق المخصص."
+    //   },
+    //   {
+    //       "question": "ما هو مفهوم الـ Dependency Injection؟",
+    //       "answer": "Dependency Injection هو نمط تصميم يُستخدم لزيادة قابلية اختبار التطبيقات عن طريق فصل إنشاء الكائنات عن استخدامها."
+    //   },
+    //   {
+    //       "question": "كيف يمكن التعامل مع الجلسات في ASP.NET؟",
+    //       "answer": "يمكن التعامل مع الجلسات في ASP.NET باستخدام كائن HttpContext.Session."
+    //   },
+    //   {
+    //       "question": "ما هو مفهوم الـ ViewModels؟",
+    //       "answer": "ViewModels هي كائنات تُستخدم لنقل البيانات بين العرض والنموذج في تطبيقات ASP.NET MVC."
+    //   },
+    //   {
+    //       "question": "كيف يمكنك استخدام الحماية في تطبيقات ASP.NET؟",
+    //       "answer": "يمكن استخدام ميزة التوثيق (Authentication) والتفويض (Authorization) لحماية تطبيقات ASP.NET."
+    //   },
+    //   {
+    //       "question": "ما هو مفهوم الـ Web API؟",
+    //       "answer": "Web API هي واجهة برمجة تطبيقات تُستخدم لبناء خدمات ويب تتيح التفاعل مع البيانات عبر HTTP."
+    //   },
+    //   {
+    //       "question": "كيف يمكنك تحسين أداء تطبيقات .NET؟",
+    //       "answer": "يمكن تحسين الأداء من خلال تحسين استعلامات قاعدة البيانات، استخدام الـ caching، وتحسين استهلاك الذاكرة."
+    //   },
+    //   {
+    //       "question": "ما هو مفهوم الـ SignalR؟",
+    //       "answer": "SignalR هو مكتبة تُستخدم لإضافة ميزات الوقت الحقيقي لتطبيقات الويب، مما يسمح بالتحديثات التلقائية."
+    //   },
+    //   {
+    //       "question": "كيف يمكنك التعامل مع قواعد البيانات في .NET؟",
+    //       "answer": "يمكنك استخدام ADO.NET أو Entity Framework للتعامل مع قواعد البيانات في تطبيقات .NET."
+    //   },
+    //   {
+    //       "question": "ما هي بعض الأدوات المفيدة لتطوير .NET؟",
+    //       "answer": "بعض الأدوات تشمل Visual Studio، ReSharper، وPostman لاختبار خدمات الويب."
+    //   },
+    //   {
+    //       "question": "كيف يمكنك تنفيذ الاختبارات في .NET؟",
+    //       "answer": "يمكنك استخدام إطار عمل مثل xUnit أو NUnit لتنفيذ الاختبارات في تطبيقات .NET."
+    //   }
+    {
+        question: 'ما هو .NET Framework؟',
+        answer: 'تم تطوير .NET Framework بواسطة Microsoft. يوفر التقنيات والأدوات اللازمة لبناء تطبيقات الشبكة وكذلك تطبيقات وخدمات الويب الموزعة.'
+      },
+      
       {
-          "question": "ما هو .NET؟",
-          "answer": ".NET هو إطار عمل لتطوير البرمجيات يُستخدم لبناء تطبيقات تعمل على أنظمة تشغيل متعددة، بما في ذلك Windows وLinux وmacOS."
+        question: 'ما الذي يوفره .NET Framework؟',
+        answer: 'يقدم .NET Framework بيئة وقت ترجمة وتشغيل تدعم أي لغة تتوافق مع مواصفات اللغة العامة (Common Language Specification - CLS).'
+      },
+      
+      {
+        question: 'ما هي المكونات الرئيسية لبرنامج .NET Framework؟',
+        answer: 'المكونات الرئيسية لـ .NET Framework تشمل:\n- وقت تشغيل اللغة العامة (Common Language Runtime - CLR).\n- مكتبة فئات إطار العمل (Framework Class Library - FCL).\n- مجالات التطبيق (Application Domains).\n- مضيف وقت التشغيل (Runtime Host).\n- التشغيل البيني بين اللغات (Cross-Language Interoperability).\n- التنفيذ جنبًا إلى جنب (Side-by-Side Execution).\n- وقت تشغيل اللغة الديناميكي (Dynamic Language Runtime - DLR).\n- نظام النوع المشترك (Common Type System - CTS).\n- البيانات الوصفية والمكونات ذاتية الوصف (Metadata and Self-Describing Components).\n- الأمان في .NET (Security in .NET).\n- بنية عرض النموذج (Model-View-Presenter - MVP Architecture).'
+      },
+      
+      {
+        question: 'ما هي الخصائص الرئيسية لـ .NET؟',
+        answer: 'الخصائص الرئيسية لـ .NET تشمل:\n- يتم تجميع البرنامج إلى لغة وسيطة تُعرف بـ Microsoft Intermediate Language - MSIL (لغة Microsoft الوسيطة).\n- MSIL لا يحتوي على أي استدعاءات API خاصة بمنصة معينة.\n- يتحقق المترجم من بناء الجملة والدلالات الأساسية فقط.\n- يتم ربط المكتبات المستخدمة في البرنامج قبل إنشاء MSIL بشكل غير مترجم.\n- يستدعي البرنامج واجهات برمجة التطبيقات (API) الخاصة بنظام التشغيل عبر CLR الذي يعمل كوسيط.\n- تقوم CLR بإدارة الذاكرة وجمع البيانات المهملة تلقائيًا.'
+      },
+      
+      {
+        question: 'ما هي اللغات التي يدعمها .NET؟',
+        answer: 'يدعم .NET عدة لغات برمجة منها:\n- VB.NET\n- C#\n- COBOL\n- PERL.'
+      },
+      
+      {
+        question: 'ما هو حجم نوع البيانات int في .NET؟',
+        answer: 'نوع البيانات int في .NET حجمه 32 بت.'
+      },
+      
+      {
+        question: 'ما هي مساحات الأسماء (Namespaces) في .NET؟',
+        answer: 'مساحات الأسماء أو Namespaces في .NET هي وسيلة لتنظيم مكتبة الفئات داخل .NET Framework بشكل منطقي حسب سهولة الاستخدام والوظيفة.'
+      },
+      
+      {
+        question: 'ما هو MSIL في .NET؟',
+        answer: 'MSIL هي اختصار لـ Microsoft Intermediate Language (لغة Microsoft الوسيطة).\nأثناء وقت الترجمة، يتم تحويل التعليمات البرمجية المصدرية إلى MSIL بواسطة المترجم.\nتُعد MSIL مجموعة من التعليمات المستقلة عن المعالج (CPU) والتي يمكن تحويلها بكفاءة إلى التعليمات الأصلية.'
+      },
+      
+      {
+        question: 'ما هي وظائف .NET Assembly؟',
+        answer: 'Assembly أو التجميع هو الوحدة الأساسية للنشر في تطبيقات .NET Framework ويكون تنسيقه إما .exe أو .dll. وتؤدي التجميعات الوظائف التالية:\n- تحتوي على كود IL الذي يتم تنفيذه بواسطة CLR.\n- تشكل حدودًا أمنية.\n- تضمن سلامة نطاق الاسم للأنواع خلال وقت التشغيل.\n- تحمل معلومات الإصدار.\n- تتيح التنفيذ جنبًا إلى جنب لإصدارات مختلفة من نفس التجميع.\n- يتم طلب ومنح الأذونات ضمنها.'
+      },
+      
+      {
+        question: 'ما هو .NET Assembly Manifest؟',
+        answer: 'Assembly Manifest هو ملف يحتوي على Metadata أو بيانات وصفية حول Assemblies في .NET.\nيصف كيفية ارتباط المكونات داخل التجميع ببعضها البعض ويحدد العلاقة والتبعيات، معلومات النطاق، ومعلومات الإصدار، وغيرها.'
       },
       {
-          "question": "ما هي مكونات .NET الأساسية؟",
-          "answer": "مكونات .NET الأساسية تشمل CLR (Common Language Runtime)، BCL (Base Class Library)، ASP.NET، وADO.NET."
+        question: 'ما هو MSIL في .NET؟',
+        answer: 'تتضمن لغة Microsoft Intermediate Language - MSIL تعليمات لتخزين وتحميل وتهيئة واستدعاء الأساليب على الكائنات، بالإضافة إلى تعليمات للعمليات المنطقية والحسابية، والوصول المباشر إلى الذاكرة، وتدفق التحكم، ومعالجة الاستثناءات، وعمليات أخرى.'
       },
+      
       {
-          "question": "ما هو CLR؟",
-          "answer": "CLR هو بيئة التنفيذ في .NET التي تدير تنفيذ التعليمات البرمجية، وتوفر ميزات مثل إدارة الذاكرة والأمان."
+        question: 'ما هو تنسيق الملف PE (Portable Executable)؟',
+        answer: 'تنسيق الملف القابل للتنفيذ المحمول (PE) هو تنسيق ملف للملفات التنفيذية، وكود الكائن، وملفات DLL المستخدمة في إصدارات 64 بت و32 بت من أنظمة تشغيل Windows.'
       },
+      
       {
-          "question": "ما الفرق بين .NET Framework و .NET Core؟",
-          "answer": ".NET Framework هو إطار عمل قديم يدعم فقط Windows، بينما .NET Core هو إطار عمل حديث مفتوح المصدر يدعم أنظمة تشغيل متعددة."
+        question: 'ما الفرق بين التجميع (Assembly) ومساحة الاسم (Namespace)؟',
+        answer: '- يمكن أن تمتد مساحة الاسم إلى تجميعات متعددة.\n- يمكن لمساحة الاسم تجميع الفئات بشكل منطقي.\n- التجميع عبارة عن مجموعة مادية من الوحدات المنطقية.'
       },
+      
       {
-          "question": "ما هو ASP.NET؟",
-          "answer": "ASP.NET هو إطار عمل لتطوير تطبيقات الويب يُستخدم لبناء مواقع ويب ديناميكية وتطبيقات ويب."
+        question: 'ما هي مساحة الاسم التي يوفرها .NET لإدارة البيانات؟',
+        answer: 'تتضمن مساحات الأسماء التي يوفرها .NET لإدارة البيانات ما يلي:\n- System.Data\n- System.Data.SqlClient\n- System.Xml.'
       },
+      
       {
-          "question": "ما هو ADO.NET؟",
-          "answer": "ADO.NET هو مجموعة من الفئات التي تُستخدم للوصول إلى البيانات وإدارتها في تطبيقات .NET، بما في ذلك الاتصال بقواعد البيانات."
+        question: 'ما هو GAC في .NET؟',
+        answer: 'يشير GAC إلى ذاكرة التخزين المؤقت للتجميع العمومي (Global Assembly Cache). إنها منطقة في الذاكرة مخصصة لتخزين التجميعات المستخدمة من قِبل جميع تطبيقات .NET التي تعمل على جهاز معين.'
       },
+      
       {
-          "question": "ما هي MVC في ASP.NET؟",
-          "answer": "MVC (Model-View-Controller) هو نمط تصميم يُستخدم في ASP.NET لفصل منطق التطبيق عن واجهة المستخدم."
+        question: 'ما هو STA في .NET؟',
+        answer: 'يشير STA أو نموذج الشقة المفردة (Single Thread Apartment) إلى نموذج قائم على الرسائل للتعامل مع كائنات متعددة تعمل بشكل متزامن، حيث يعيش كل خيط في شقة خاصة به.'
       },
+      
       {
-          "question": "ما هو NuGet؟",
-          "answer": "NuGet هو مدير حزم .NET، يُستخدم لتثبيت وإدارة الحزم في مشاريع .NET."
+        question: 'ما هو معدّل الوصول (Access Modifier) في .NET؟',
+        answer: 'يوفر معدّل الوصول في .NET إمكانية التحكم في الوصول إلى فئة، أو وظيفة، أو متغير ضمن نطاق معين.'
       },
+      
       {
-          "question": "ما هي الكلاسات الافتراضية في .NET؟",
-          "answer": "الكلاسات الافتراضية في .NET هي الكلاسات التي يمكن استخدامها كقاعدة لإنشاء كلاس آخر باستخدام الوراثة."
+        question: 'ما هي أنواع معدّلات الوصول (Access Modifiers) في .NET؟',
+        answer: 'معدّلات الوصول في .NET هي خمسة أنواع:\n- عام (Public)\n- خاص (Private)\n- محمي (Protected)\n- داخلي (Internal)\n- داخلي محمي (Protected Internal).'
       },
+      
       {
-          "question": "كيف تتعامل مع الأخطاء في .NET؟",
-          "answer": "يمكن التعامل مع الأخطاء في .NET باستخدام الكتل try-catch-finally."
+        question: 'ما هو نوع الكود الأمني (Security Code) المتوفر في .NET؟',
+        answer: 'أنواع الأمان المتوفرة في .NET هي:\n- الأمان القائم على الدور (Role-Based Security): والذي يسمح بالتحكم بالوصول بناءً على أدوار المستخدمين.\n- أمان الوصول إلى الكود (Code Access Security - CAS): والذي يحمي موارد النظام من الاستدعاءات غير المصرح بها.'
       },
+      
       {
-          "question": "ما هو مفهوم الـ Delegates؟",
-          "answer": "الـ Delegates هو نوع آمن من المؤشرات يُستخدم للإشارة إلى طريقة، مما يسمح بتمرير الطرق كمعاملات."
+        question: 'كيف يمكنك تنفيذ النمط المفرد (Singleton Pattern) في .NET؟',
+        answer: 'لتطبيق النمط المفرد في .NET، اتبع الخطوات التالية:\n- إنشاء فئة تحتوي على أعضاء ثابتين.\n- تحديد منشئ خاص.\n- للوصول إلى الكائن المفرد، استخدم طريقة ثابتة.'
       },
+      
       {
-          "question": "ما هو LINQ؟",
-          "answer": "LINQ (Language Integrated Query) هو ميزة في .NET تسمح بكتابة استعلامات بشكل متكامل ضمن التعليمات البرمجية."
+        question: 'كيف يتم التعامل مع الاستثناء (Exception Handling) في .NET؟',
+        answer: 'في .NET، عند حدوث استثناء، يقوم إطار عمل .NET بإنشاء كائن من النوع "استثناء" (Exception) و"رميه". يحتوي كائن الاستثناء على جميع المعلومات حول الخطأ. إذا تم تغليف الكود داخل كتلة try-catch، فسيتم استقبال كائن الاستثناء داخل كتلة catch عند حدوث الاستثناء.'
       },
+      
       {
-          "question": "ما هو مفهوم الـ Entity Framework؟",
-          "answer": "Entity Framework هو ORM (Object-Relational Mapping) يُستخدم لتسهيل التعامل مع قواعد البيانات."
+        question: 'كيف يمكنك إنشاء واستخدام مجموعة (Array) في .NET؟',
+        answer: 'في .NET، يمكنك إنشاء مصفوفة (Array) بالخطوات التالية:\n- إعلان مرجع إلى مصفوفة.\n- إنشاء مصفوفة من عشرة عناصر من نوع Int32.\n- إنشاء مصفوفة ثنائية الأبعاد.\n- إنشاء مصفوفة متعددة الأبعاد.'
       },
-      {
-          "question": "ما هو مفهوم الـ Attributes في .NET؟",
-          "answer": "Attributes هي وسوم تُستخدم لإضافة معلومات وصفية إلى الكلاسات والخصائص والطرق."
-      },
-      {
-          "question": "كيف يمكنك إنشاء واجهة مستخدم باستخدام WPF؟",
-          "answer": "يمكنك استخدام WPF (Windows Presentation Foundation) لإنشاء واجهة مستخدم غنية تعتمد على XAML."
-      },
-      {
-          "question": "ما هي خدمة REST في .NET؟",
-          "answer": "REST (Representational State Transfer) هي نمط معماري يُستخدم لبناء خدمات ويب، ويمكن تنفيذها في .NET باستخدام ASP.NET Web API."
-      },
-      {
-          "question": "ما هي المزايا التي يوفرها .NET Core؟",
-          "answer": ".NET Core يوفر دعم الأنظمة المتعددة، الأداء العالي، قابلية التوسع، وإمكانية التشغيل عبر المنصات."
-      },
-      {
-          "question": "ما هو مفهوم الـ Asynchronous Programming في .NET؟",
-          "answer": "البرمجة غير المتزامنة في .NET تسمح بتنفيذ العمليات بشكل متزامن، مما يُحسن أداء التطبيق ويقلل من وقت الانتظار."
-      },
-      {
-          "question": "كيف تتعامل مع البيانات غير المتزامنة في .NET؟",
-          "answer": "يمكن استخدام الكلمات المفتاحية async وawait للتعامل مع العمليات غير المتزامنة."
-      },
-      {
-          "question": "ما هي استخدامات الـ Middleware في ASP.NET Core؟",
-          "answer": "الـ Middleware تُستخدم لمعالجة الطلبات والاستجابة، مثل إدارة الأمان والتوثيق وتسجيل الدخول."
-      },
-      {
-          "question": "كيف يمكنك تنفيذ التحقق من صحة البيانات في ASP.NET؟",
-          "answer": "يمكن تنفيذ التحقق من صحة البيانات باستخدام الـ Data Annotations أو باستخدام نموذج التحقق المخصص."
-      },
-      {
-          "question": "ما هو مفهوم الـ Dependency Injection؟",
-          "answer": "Dependency Injection هو نمط تصميم يُستخدم لزيادة قابلية اختبار التطبيقات عن طريق فصل إنشاء الكائنات عن استخدامها."
-      },
-      {
-          "question": "كيف يمكن التعامل مع الجلسات في ASP.NET؟",
-          "answer": "يمكن التعامل مع الجلسات في ASP.NET باستخدام كائن HttpContext.Session."
-      },
-      {
-          "question": "ما هو مفهوم الـ ViewModels؟",
-          "answer": "ViewModels هي كائنات تُستخدم لنقل البيانات بين العرض والنموذج في تطبيقات ASP.NET MVC."
-      },
-      {
-          "question": "كيف يمكنك استخدام الحماية في تطبيقات ASP.NET؟",
-          "answer": "يمكن استخدام ميزة التوثيق (Authentication) والتفويض (Authorization) لحماية تطبيقات ASP.NET."
-      },
-      {
-          "question": "ما هو مفهوم الـ Web API؟",
-          "answer": "Web API هي واجهة برمجة تطبيقات تُستخدم لبناء خدمات ويب تتيح التفاعل مع البيانات عبر HTTP."
-      },
-      {
-          "question": "كيف يمكنك تحسين أداء تطبيقات .NET؟",
-          "answer": "يمكن تحسين الأداء من خلال تحسين استعلامات قاعدة البيانات، استخدام الـ caching، وتحسين استهلاك الذاكرة."
-      },
-      {
-          "question": "ما هو مفهوم الـ SignalR؟",
-          "answer": "SignalR هو مكتبة تُستخدم لإضافة ميزات الوقت الحقيقي لتطبيقات الويب، مما يسمح بالتحديثات التلقائية."
-      },
-      {
-          "question": "كيف يمكنك التعامل مع قواعد البيانات في .NET؟",
-          "answer": "يمكنك استخدام ADO.NET أو Entity Framework للتعامل مع قواعد البيانات في تطبيقات .NET."
-      },
-      {
-          "question": "ما هي بعض الأدوات المفيدة لتطوير .NET؟",
-          "answer": "بعض الأدوات تشمل Visual Studio، ReSharper، وPostman لاختبار خدمات الويب."
-      },
-      {
-          "question": "كيف يمكنك تنفيذ الاختبارات في .NET؟",
-          "answer": "يمكنك استخدام إطار عمل مثل xUnit أو NUnit لتنفيذ الاختبارات في تطبيقات .NET."
-      }
+
+{
+  question: 'ما هو نوع البيانات المعرفة من قبل المستخدم؟',
+  answer: 'User-Defined Data Type هو نوع بيانات مسمى تم إنشاؤه بواسطة المستخدم. ويمكن تصنيفه إلى:\n- Enumerated Type\n- Reference Type\n- Structured Type'
+},
+{
+  question: 'قم بإدراج عدد من مساحة اسم مكتبة الفئة الأساسية .NET؟',
+  answer: '.NET Base Class Library Namespaces تتضمن:\n- Activities\n- Collections\n- Configuration\n- Enterprise Services\n- Management\n- Runtime'
+},
+{
+  question: 'اذكر أنواع المصفوفات متعددة الأبعاد المستخدمة في .NET؟',
+  answer: 'أنواع المصفوفات متعددة الأبعاد في .NET تشمل:\n\n- Jagged Arrays: مصفوفات تحتوي على صفيف فرعي كمصفوفات مستقلة بأطوال مختلفة، تستخدم مجموعة منفصلة من square brackets []\n\n- Rectangular Arrays: مصفوفات تحتوي على جميع المصفوفات الفرعية بنفس الطول، تستخدم مجموعة واحدة من square brackets []'
+},
+{
+  question: 'ما هو حدث Bubbling في .NET؟',
+  answer: 'Event Bubbling في .NET هو عملية تمرير عنصر التحكم من Child إلى Parent. يمكن أن تحتوي عناصر التحكم مثل DataList و DataGrid و Repeater على عناصر تحكم فرعية مثل ListBox'
+},
+{
+  question: 'ما هي نوافذ التصحيح المتاحة؟',
+  answer: 'Debug Windows المتاحة تشمل:\n- Breakpoints\n- Output\n- Immediate'
+},
+{
+  question: 'ما هو Microsoft Silverlight؟',
+  answer: 'Microsoft Silverlight هو framework مفتوح المصدر لإنشاء ونشر Rich Internet Applications وتجارب الوسائط على الويب.\n\nيتكون من ثلاثة مكونات رئيسية:\n- Presentation Framework\n- .NET Framework for Silverlight\n- Updater and Installer'
+},
+
+{
+  question: 'مما يتكون Silverlight؟',
+  answer: 'يتكون Silverlight من أربعة مكونات رئيسية:\n\n- Silverlight Plugin\n- Silverlight Host (Web Page)\n- Silverlight Application File (.XAP)\n- XAML Interface Language'
+},
+{
+  question: 'ما هو ملف .XAP؟',
+  answer: '.XAP file هو ملف مضغوط لتطبيق Silverlight. يحتوي على:\n- AppManifest.xaml\n- Silverlight Project Output Assembly (.dll)\n- Resources\n\nMIME type للملف هو: application/x-silverlight'
+},
+{
+  question: 'ما هو الفرق بين WPF و Silverlight؟',
+  answer: '- Silverlight هو subset من Windows Presentation Foundation (WPF)\n- Silverlight ينافس Adobe Flash ومصمم لتطوير Rich Internet Applications\n- WPF هي تقنية Microsoft لتطوير Enhanced Graphics Applications لمنصة Desktop\n- يمكن استضافة تطبيق Browser-based على متصفحات الويب مع ميزات Rich Graphics'
+},
+{
+  question: 'ما هو RIA؟',
+  answer: 'RIA (Rich Internet Applications) هي تطبيقات ويب ذات ميزات متقدمة تتضمن:\n- Built-in AJAX Support\n- Layouts\n- Animations\n- Audio & Video Components\n\nSilverlight هو مثال على RIA'
+},
+{
+  question: 'ما هي عناصر التحكم المختلفة في Layout المتاحة في Silverlight؟',
+  answer: 'عناصر التحكم في Layout تشمل:\n\n- StackPanel: يتم ترتيب العناصر الفرعية بشكل عمودي أو أفقي\n- Grid: يتم ترتيب العناصر الفرعية في Rows و Columns\n- Canvas: يتم تحديد موقع العناصر الفرعية باستخدام إحداثيات X و Y'
+},
+{
+  question: 'ما هو بناء الجملة لـ ASP.NET؟',
+  answer: 'ASP.NET Syntax يتكون من ملف HTML مع إمكانية احتواء Server-Side Scripts. مثال:\n\n<!DOCTYPE html>\n<html>\n<body>\n<%\nResponse.write("Hello World!")\n%>\n</body>\n</html>'
+}
+      
+      
   ],
   ////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////
@@ -2011,7 +2173,256 @@ export const sections = [
           "question": "ما هو الـ Partitioning في database؟",
           "answer": "Partitioning تُستخدم لتقسيم جدول كبير إلى أجزاء أصغر لتحسين الأداء وإدارة البيانات."
       }
-  ]
+  ],
+  ////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
+    laravel:[
+        {
+        question: 'ما هو Laravel وما هي مميزاته الرئيسية؟',
+        answer: 'Laravel هو PHP Framework مفتوح المصدر يتبع نمط MVC. مميزاته الرئيسية:\n\n- Artisan CLI Tool\n- Blade Template Engine\n- Eloquent ORM\n- Built-in Security Features\n- Database Migration System\n- Package Management via Composer\n- Unit Testing Support\n- Robust Caching System'
+        },
+        {
+        question: 'ما هو Artisan في Laravel؟',
+        answer: 'Artisan هو Command Line Interface (CLI) مدمج في Laravel. يوفر عدة أوامر مفيدة للتطوير مثل:\n\n- php artisan make:controller\n- php artisan make:model\n- php artisan make:migration\n- php artisan serve\n- php artisan cache:clear\n\nيمكن أيضاً إنشاء Custom Commands خاصة بك'
+        },
+        {
+        question: 'اشرح Service Container في Laravel؟',
+        answer: 'Service Container هو أداة قوية لإدارة Class Dependencies وتنفيذ Dependency Injection. يقوم بـ:\n\n- Automatic Resolution للـ dependencies\n- Binding Interfaces to Implementations\n- إدارة Singleton Instances\n- تسهيل Unit Testing عبر Mocking'
+        },
+        {
+        question: 'ما هو Eloquent ORM وكيف يعمل؟',
+        answer: 'Eloquent هو Object-Relational Mapper (ORM) في Laravel يسمح بـ:\n\n- التعامل مع Database Tables كـ PHP Classes\n- كل Table يمثله Model\n- يدعم Relationships مثل:\n  * One-to-One\n  * One-to-Many\n  * Many-to-Many\n- يوفر Query Builder سهل الاستخدام'
+        },
+        {
+        question: 'ما هي Middleware في Laravel وما هي استخداماتها؟',
+        answer: 'Middleware هي طبقة تعمل كـ filter للـ HTTP Requests. استخداماتها:\n\n- Authentication\n- CORS Protection\n- Request Validation\n- API Authentication\n- Session Handling\n\nأنواعها:\n- Global Middleware\n- Route Middleware\n- Group Middleware'
+        },
+        {
+        question: 'كيف تعمل Authentication في Laravel؟',
+        answer: 'Laravel يوفر نظام Authentication متكامل يتضمن:\n\n- Built-in Authentication System\n- Multiple Authentication Guards\n- Session-based Authentication\n- Token-based Authentication\n- Social Authentication via Socialite\n- Password Reset Features\n- Email Verification'
+        },
+        {
+        question: 'ما هو Blade Template Engine وما مميزاته؟',
+        answer: 'Blade هو Template Engine خاص بـ Laravel يوفر:\n\n- Syntax مبسط للـ PHP\n- Template Inheritance via @extends\n- Sections via @section و @yield\n- Components via @component\n- Directives مثل:\n  * @if, @foreach, @while\n  * @auth, @guest\n  * @include\n- Custom Directives'
+        },
+        {
+        question: 'ما هي Database Migrations وما أهميتها؟',
+        answer: 'Migrations هي نظام Version Control للـ Database يتيح:\n\n- إنشاء وتعديل Database Schema\n- مشاركة Database Structure مع المطورين\n- التحكم في نسخ Database\n- Rollback للتغييرات\n\nأوامر مهمة:\n- php artisan make:migration\n- php artisan migrate\n- php artisan migrate:rollback'
+        },
+        {
+        question: 'ما هو الفرق بين soft delete و hard delete في Laravel؟',
+        answer: '- Soft Delete:\n  * يضيف حقل deleted_at للـ record\n  * البيانات تبقى في Database\n  * يمكن استرجاع البيانات\n  * يستخدم trait SoftDeletes\n\n- Hard Delete:\n  * حذف نهائي للـ record من Database\n  * لا يمكن استرجاع البيانات\n  * يستخدم دالة delete()'
+        },
+        {
+        question: 'ما هي Events و Listeners في Laravel؟',
+        answer: 'Events و Listeners تستخدم لفصل جوانب التطبيق:\n\n- Events: تمثل حدث معين في التطبيق\n- Listeners: تستجيب للـ Events\n\nمميزات:\n- Decoupled Architecture\n- Async Operations\n- Multiple Listeners per Event\n- Event Broadcasting'
+        },
+        {
+        question: 'ما هو Queue System في Laravel؟',
+        answer: 'Queue System يستخدم لتأجيل معالجة المهام الثقيلة مثل:\n\n- إرسال Emails\n- Image Processing\n- File Uploads\n- External API Calls\n\nيدعم عدة Drivers:\n- Database\n- Redis\n- Amazon SQS\n- Beanstalkd'
+        },
+        {
+        question: 'كيف يعمل Laravel Sanctum وما استخداماته؟',
+        answer: 'Sanctum هو نظام Authentication خفيف يستخدم لـ:\n\n- SPA Authentication\n- API Token Authentication\n- Mobile App Authentication\n\nمميزات:\n- Token-based Authentication\n- Multiple Guards\n- API Rate Limiting\n- Cookie-based Session Authentication'
+        },
+        {
+        question: 'ما هي Service Providers في Laravel؟',
+        answer: 'Service Providers هي نقطة Bootstrap الرئيسية للتطبيق:\n\n- تسجيل Service Container Bindings\n- Event Listeners\n- Middleware\n- Routes\n\nأنواعها:\n- Application Providers\n- Package Providers\n- Deferred Providers'
+        },
+        {
+        question: 'كيف تعمل Validation في Laravel؟',
+        answer: 'Laravel يوفر عدة طرق للـ Validation:\n\n- Form Request Validation\n- Controller Validation\n- Custom Validation Rules\n\nمميزات:\n- Built-in Validation Rules\n- Custom Error Messages\n- Localization Support\n- Array Validation'
+        },
+        {
+        question: 'ما هو Facade Pattern في Laravel؟',
+        answer: 'Facades توفر واجهة "static" للـ classes في Service Container:\n\n- سهولة الاستخدام\n- Syntactic Sugar للـ Service Container\n- Testing Flexibility\n\nأمثلة شائعة:\n- Route\n- Auth\n- Cache\n- DB'
+        },
+        {
+        question: 'كيف يتم التعامل مع Caching في Laravel؟',
+        answer: 'Laravel يدعم عدة Cache Drivers:\n\n- File\n- Database\n- Memcached\n- Redis\n\nعمليات Cache الأساسية:\n- Cache::get()\n- Cache::put()\n- Cache::remember()\n- Cache::forget()\n- Cache::tags()'
+        },
+        {
+        question: 'ما هي Collections في Laravel وكيف تستخدم؟',
+        answer: 'Collections هي wrapper حول Arrays توفر:\n\n- Method Chaining\n- Helper Functions مثل:\n  * map()\n  * filter()\n  * reduce()\n  * sort()\n  * groupBy()\n- Lazy Collections للـ Large Datasets'
+        },
+        {
+        question: 'كيف تعمل Authorization في Laravel؟',
+        answer: 'Laravel يوفر نظام Authorization عبر:\n\n- Gates: تعريف logic مركزي\n- Policies: ربط logic بـ Models\n- Middleware: التحقق على مستوى Routes\n\nاستخدام:\n- can()\n- authorize()\n- @can directive'
+        },
+        {
+        question: 'ما هو Laravel Dusk وكيف يستخدم؟',
+        answer: 'Dusk هو Browser Testing Framework يتيح:\n\n- Browser Automation\n- Testing JavaScript\n- Screenshot Capture\n- Database Assertions\n- Page Object Pattern Support\n- Custom Element Selection'
+        },
+        {
+        question: 'كيف تعمل Job Scheduling في Laravel؟',
+        answer: 'Task Scheduler يتيح جدولة المهام المتكررة:\n\n- تحديد Cron Schedules\n- تنفيذ Artisan Commands\n- Queue Jobs\n- Shell Commands\n\nمثال:\n- ->daily()\n- ->weekly()\n- ->monthly()'
+        },
+
+        {
+        question: 'ما هو Repository Pattern وكيف يطبق في Laravel؟',
+        answer: 'Repository Pattern يفصل Logic التعامل مع Data:\n\n- فصل Business Logic عن Data Access Layer\n- سهولة تغيير Data Source\n- تحسين Code Reusability\n\nالتطبيق:\n- إنشاء Interface\n- تنفيذ Repository Class\n- استخدام Service Container للـ Binding'
+        },
+        {
+        question: 'كيف يتم التعامل مع File Storage في Laravel?',
+        answer: 'Laravel يوفر File System Abstraction:\n\n- Local Storage\n- Amazon S3\n- FTP\n- Multiple Disks\n\nFeatures:\n- File Upload\n- File Download\n- File Visibility\n- Custom File Systems'
+        },
+        {
+        question: 'ما هي Rate Limiting في Laravel وكيف تستخدم؟',
+        answer: 'Rate Limiting تحد من تكرار الطلبات:\n\n- API Rate Limiting\n- Route Rate Limiting\n- Dynamic Rate Limits\n\nتطبيق عبر:\n- Middleware\n- Cache Drivers\n- Custom Limitations'
+        },
+        {
+        question: 'كيف يتم تنفيذ Real-time Features في Laravel?',
+        answer: 'Laravel يدعم Real-time عبر:\n\n- Broadcasting System\n- Pusher\n- Socket.io\n- Laravel Echo\n\nFeatures:\n- Private Channels\n- Presence Channels\n- Event Broadcasting'
+        },
+        {
+        question: 'ما هو Laravel Horizon وما استخداماته؟',
+        answer: 'Horizon يوفر Dashboard للـ Redis Queue:\n\n- Queue Monitoring\n- Job Metrics\n- Failed Jobs\n- Process Management\n\nFeatures:\n- Real-time Monitoring\n- Job Retries\n- Custom Metrics'
+        },
+        {
+        question: 'كيف يتم التعامل مع Localization في Laravel?',
+        answer: 'Laravel يدعم Multi-language عبر:\n\n- Language Files\n- Translation Strings\n- Blade Directives\n\nFeatures:\n- Fallback Locales\n- JSON Translations\n- Dynamic Locale Switching'
+        },
+        {
+        question: 'ما هو Laravel Scout وكيف يستخدم؟',
+        answer: 'Scout هو Full-text Search Solution:\n\n- Algolia Integration\n- Custom Drivers\n- Searchable Models\n\nFeatures:\n- Async Indexing\n- Search Query Building\n- Custom Indexing Logic'
+        },
+        {
+        question: 'كيف تتم معالجة Exceptions في Laravel?',
+        answer: 'Laravel يوفر Exception Handling System:\n\n- Custom Exception Handler\n- Error Pages\n- Exception Reporting\n\nFeatures:\n- Custom Error Messages\n- Error Logging\n- Development/Production Modes'
+        },
+        {
+        question: 'ما هو Laravel Mix وكيف يستخدم؟',
+        answer: 'Mix هو Webpack Wrapper يستخدم لـ:\n\n- Asset Compilation\n- SASS/LESS Processing\n- JavaScript Modules\n- Version Hash\n\nFeatures:\n- Hot Module Replacement\n- Code Splitting\n- Source Maps'
+        },
+        {
+        question: 'كيف يتم تنفيذ API Versioning في Laravel?',
+        answer: 'API Versioning يمكن تنفيذه عبر:\n\n- URL Versioning\n- Header Versioning\n- Custom Namespace\n\nBest Practices:\n- API Resources\n- Version Prefixes\n- Documentation\n- Rate Limiting'
+        }
+    ],
+////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
+    uiux:[
+        {
+            question: 'ما هو الفرق بين UI و UX؟',
+            answer: '- User Interface (UI):\n  * يركز على المظهر البصري للمنتج\n  * تصميم العناصر التفاعلية\n  * اختيار الألوان والخطوط والأشكال\n\n- User Experience (UX):\n  * يركز على تجربة المستخدم الشاملة\n  * سهولة الاستخدام والتنقل\n  * فهم احتياجات المستخدم\n  * تحسين رضا المستخدم'
+            },
+            {
+            question: 'ما هي عناصر User Experience Design الأساسية؟',
+            answer: 'تتكون UX من خمسة عناصر أساسية:\n\n1. Strategy Plane:\n  * User Needs\n  * Business Goals\n\n2. Scope Plane:\n  * Features\n  * Requirements\n\n3. Structure Plane:\n  * Information Architecture\n  * User Flow\n\n4. Skeleton Plane:\n  * Navigation\n  * Layout\n\n5. Surface Plane:\n  * Visual Design\n  * Branding'
+            },
+            {
+            question: 'ما هي أهم مبادئ Design Thinking؟',
+            answer: 'Design Thinking يتكون من خمس مراحل:\n\n1. Empathize:\n  * فهم احتياجات المستخدم\n  * البحث والملاحظة\n\n2. Define:\n  * تحديد المشكلة\n  * صياغة Point of View\n\n3. Ideate:\n  * توليد الأفكار\n  * Brainstorming\n\n4. Prototype:\n  * إنشاء نماذج أولية\n\n5. Test:\n  * اختبار الحلول\n  * جمع Feedback'
+            },
+            {
+            question: 'ما هي Usability Heuristics لـ Nielsen؟',
+            answer: 'Nielsen\'s 10 Usability Heuristics:\n\n1. Visibility of System Status\n2. Match Between System and Real World\n3. User Control and Freedom\n4. Consistency and Standards\n5. Error Prevention\n6. Recognition Rather Than Recall\n7. Flexibility and Efficiency\n8. Aesthetic and Minimalist Design\n9. Help Users with Errors\n10. Help and Documentation'
+            },
+            {
+            question: 'ما هي أنواع User Research المختلفة؟',
+            answer: 'User Research Methods:\n\n1. Qualitative:\n  * User Interviews\n  * Focus Groups\n  * Contextual Inquiry\n\n2. Quantitative:\n  * Surveys\n  * Analytics\n  * A/B Testing\n\n3. Behavioral:\n  * Usability Testing\n  * Eye Tracking\n  * Heat Maps\n\n4. Attitudinal:\n  * Satisfaction Surveys\n  * Card Sorting'
+            },
+            {
+            question: 'ما هو Information Architecture وما أهميته؟',
+            answer: 'Information Architecture (IA):\n\n1. الأهمية:\n  * تنظيم المحتوى\n  * تسهيل الوصول للمعلومات\n  * تحسين User Navigation\n\n2. عناصر IA:\n  * Organization Systems\n  * Labeling Systems\n  * Navigation Systems\n  * Search Systems\n\n3. أدوات:\n  * Site Maps\n  * User Flows\n  * Content Inventory'
+            },
+            {
+            question: 'كيف تقوم بإجراء Usability Testing؟',
+            answer: 'خطوات Usability Testing:\n\n1. Planning:\n  * تحديد الأهداف\n  * اختيار المشاركين\n  * تجهيز Test Scenarios\n\n2. Conducting:\n  * Think-aloud Protocol\n  * Task Completion\n  * Observation\n\n3. Analysis:\n  * تحليل النتائج\n  * تحديد Issues\n  * اقتراح Solutions'
+            },
+            {
+            question: 'ما هي أهم Design Principles في UI؟',
+            answer: 'UI Design Principles:\n\n1. Visual Hierarchy:\n  * Size\n  * Color\n  * Contrast\n\n2. White Space:\n  * Readability\n  * Focus\n\n3. Color Theory:\n  * Color Psychology\n  * Color Harmony\n\n4. Typography:\n  * Readability\n  * Hierarchy\n\n5. Consistency:\n  * Visual Elements\n  * Patterns'
+            },
+            {
+            question: 'كيف تقوم بإنشاء Wireframes وما أهميتها؟',
+            answer: 'Wireframes:\n\n1. الأهمية:\n  * تخطيط Layout\n  * تحديد Content Priority\n  * تسهيل Feedback\n\n2. أنواع:\n  * Low-fidelity\n  * Mid-fidelity\n  * High-fidelity\n\n3. أدوات:\n  * Sketch\n  * Figma\n  * Adobe XD'
+            },
+            {
+            question: 'ما هي Accessibility Guidelines الأساسية في التصميم؟',
+            answer: 'Accessibility Guidelines:\n\n1. Color:\n  * Color Contrast\n  * Color Blindness\n\n2. Typography:\n  * Font Size\n  * Line Height\n  * Text Spacing\n\n3. Navigation:\n  * Keyboard Access\n  * Screen Readers\n\n4. Content:\n  * Alt Text\n  * Clear Headings\n  * Simple Language'
+            },
+            {
+            question: 'كيف تقوم بإجراء A/B Testing؟',
+            answer: 'A/B Testing Process:\n\n1. Planning:\n  * تحديد Goals\n  * اختيار Variables\n  * تحديد Metrics\n\n2. Implementation:\n  * إنشاء Variants\n  * تقسيم Users\n  * جمع Data\n\n3. Analysis:\n  * تحليل Results\n  * Statistical Significance\n  * اتخاذ Decisions'
+            },
+            {
+            question: 'ما هي أهم Interaction Design Patterns؟',
+            answer: 'Interaction Patterns:\n\n1. Navigation:\n  * Hamburger Menu\n  * Breadcrumbs\n  * Tabs\n\n2. Data Input:\n  * Forms\n  * Search\n  * Filters\n\n3. Feedback:\n  * Progress Bars\n  * Loading States\n  * Notifications\n\n4. Social:\n  * Likes\n  * Comments\n  * Sharing'
+            },
+            {
+            question: 'كيف تقوم بإنشاء Style Guide؟',
+            answer: 'Style Guide Components:\n\n1. Visual Elements:\n  * Colors\n  * Typography\n  * Icons\n  * Spacing\n\n2. Components:\n  * Buttons\n  * Forms\n  * Cards\n\n3. Guidelines:\n  * Usage Rules\n  * Best Practices\n  * Examples'
+            },
+            {
+            question: 'ما هي Mobile-First Design Principles؟',
+            answer: 'Mobile-First Principles:\n\n1. Content Priority:\n  * Essential Content First\n  * Progressive Enhancement\n\n2. Design Elements:\n  * Touch Targets\n  * Readable Text\n  * Simple Navigation\n\n3. Performance:\n  * Fast Loading\n  * Optimized Images\n  * Minimal Animation'
+            },
+            {
+            question: 'كيف تقوم بتصميم Micro-interactions؟',
+            answer: 'Micro-interactions:\n\n1. Elements:\n  * Trigger\n  * Rules\n  * Feedback\n  * Loops\n\n2. Examples:\n  * Button States\n  * Form Validation\n  * Loading Animation\n\n3. Best Practices:\n  * Subtle\n  * Purposeful\n  * Consistent'
+            },
+            {
+            question: 'ما هي Card Sorting Technique؟',
+            answer: 'Card Sorting:\n\n1. Types:\n  * Open Sorting\n  * Closed Sorting\n  * Hybrid Sorting\n\n2. Process:\n  * Preparation\n  * Execution\n  * Analysis\n\n3. Benefits:\n  * Information Architecture\n  * User Mental Models\n  * Navigation Structure'
+            },
+            {
+            question: 'كيف تقوم بإجراء Competitive Analysis؟',
+            answer: 'Competitive Analysis:\n\n1. Research Areas:\n  * Features\n  * Design Patterns\n  * User Experience\n\n2. Methods:\n  * Feature Comparison\n  * Usability Review\n  * SWOT Analysis\n\n3. Deliverables:\n  * Comparison Matrix\n  * Insights Report\n  * Recommendations'
+            },
+            {
+            question: 'ما هي Gestalt Principles في التصميم؟',
+            answer: 'Gestalt Principles:\n\n1. Similarity:\n  * Visual Elements\n  * Grouping\n\n2. Proximity:\n  * Spatial Relationships\n  * Grouping\n\n3. Continuation:\n  * Visual Flow\n  * Direction\n\n4. Closure:\n  * Complete Forms\n  * Patterns'
+            },
+            {
+            question: 'كيف تقوم بتصميم Forms؟',
+            answer: 'Form Design:\n\n1. Structure:\n  * Logical Flow\n  * Grouping\n  * Progressive Disclosure\n\n2. Elements:\n  * Clear Labels\n  * Error States\n  * Validation\n\n3. Best Practices:\n  * Single Column\n  * Clear CTAs\n  * Inline Validation'
+            },
+            {
+            question: 'ما هي Design Systems وكيف تنشئها؟',
+            answer: 'Design Systems:\n\n1. Components:\n  * UI Kit\n  * Style Guide\n  * Pattern Library\n\n2. Documentation:\n  * Usage Guidelines\n  * Code Examples\n  * Best Practices\n\n3. Maintenance:\n  * Version Control\n  * Updates\n  * Team Collaboration'
+            },
+            {
+            question: 'ما هي طرق قياس UX Success؟',
+            answer: 'UX Metrics:\n\n1. Quantitative:\n  * Conversion Rate\n  * Task Success Rate\n  * Time on Task\n\n2. Qualitative:\n  * User Satisfaction\n  * Net Promoter Score\n  * User Feedback\n\n3. Business Metrics:\n  * ROI\n  * Customer Retention\n  * Support Tickets'
+            },
+            {
+            question: 'كيف تقوم بإجراء User Interviews؟',
+            answer: 'User Interviews:\n\n1. Preparation:\n  * Interview Guide\n  * Participant Screening\n  * Setting\n\n2. Techniques:\n  * Open Questions\n  * Active Listening\n  * Follow-up Questions\n\n3. Analysis:\n  * Patterns\n  * Insights\n  * Recommendations'
+            },
+            {
+            question: 'ما هي أفضل ممارسات Responsive Design؟',
+            answer: 'Responsive Design:\n\n1. Layout:\n  * Fluid Grids\n  * Flexible Images\n  * Media Queries\n\n2. Content:\n  * Priority Content\n  * Readable Text\n  * Touch Targets\n\n3. Performance:\n  * Image Optimization\n  * Loading Speed\n  * Minimal Code'
+            },
+            {
+            question: 'كيف تقوم بتصميم Navigation Systems؟',
+            answer: 'Navigation Design:\n\n1. Types:\n  * Global Navigation\n  * Local Navigation\n  * Contextual Navigation\n\n2. Principles:\n  * Clarity\n  * Consistency\n  * Feedback\n\n3. Patterns:\n  * Menu Structures\n  * Search\n  * Filters'
+            },
+            {
+            question: 'ما هي Color Theory وكيف تطبقها؟',
+            answer: 'Color Theory:\n\n1. Basics:\n  * Color Wheel\n  * Color Harmony\n  * Color Psychology\n\n2. Applications:\n  * Brand Identity\n  * UI Elements\n  * Accessibility\n\n3. Guidelines:\n  * Contrast\n  * Hierarchy\n  * Consistency'
+            },
+            {
+            question: 'كيف تقوم بتصميم Onboarding Experience؟',
+            answer: 'Onboarding Design:\n\n1. Elements:\n  * Welcome Screen\n  * Key Features\n  * Progress Indicators\n\n2. Principles:\n  * Progressive\n  * Interactive\n  * Value-focused\n\n3. Best Practices:\n  * Minimal Steps\n  * Clear Value\n  * Quick Wins'
+            },
+            {
+            question: 'ما هي طرق Visual Hierarchy؟',
+            answer: 'Visual Hierarchy:\n\n1. Elements:\n  * Size\n  * Color\n  * Contrast\n  * Space\n\n2. Principles:\n  * F-Pattern\n  * Z-Pattern\n  * Grid Systems\n\n3. Applications:\n  * Typography\n  * Layout\n  * Content Structure'
+            },
+            {
+            question: 'كيف تقوم بإجراء Persona Development؟',
+            answer: 'Persona Development:\n\n1. Research:\n  * User Data\n  * Demographics\n  * Behaviors\n\n2. Components:\n  * Goals\n  * Pain Points\n  * Scenarios\n\n3. Applications:\n  * Design Decisions\n  * Feature Priority\n  * Content Strategy'
+            },
+            {
+            question: 'ما هي Error Prevention Strategies؟',
+            answer: 'Error Prevention:\n\n1. Design Strategies:\n  * Clear Instructions\n  * Confirmation Dialogs\n  * Undo Options\n\n2. Validation:\n  * Real-time Feedback\n  * Input Constraints\n  * Clear Error Messages\n\n3. Recovery:\n  * Error Messages\n  * Recovery Options\n  * Help Resources'
+            }
+    ]
   
   
   
