@@ -1,36 +1,44 @@
 import { Box, Container, Typography } from '@mui/material';
 import { LinkedIn, GitHub, Facebook, WhatsApp, Email } from '@mui/icons-material';
+import { useLanguage } from '../i18n/useLanguage';
+
 const Footer = () => {
+  const { t } = useLanguage();
   const socialLinks = [
-    { 
-      icon: <Email />, 
+    {
+      icon: <Email />,
+      label: 'Email',
       url: 'mailto:mahmoud.tamer.badr2000@gmail.com',
       color: '#d44638'
     },
-    { 
-      icon: <LinkedIn />, 
-      url: 'http://www.linkedin.com/in/mahmoud-badr-b73516242', 
+    {
+      icon: <LinkedIn />,
+      label: 'LinkedIn',
+      url: 'http://www.linkedin.com/in/mahmoud-badr-b73516242',
       color: '#0077b5'
     },
-    { 
-      icon: <GitHub />, 
-      url: 'https://github.com/mahmoudbadr00', 
+    {
+      icon: <GitHub />,
+      label: 'GitHub',
+      url: 'https://github.com/mahmoudbadr00',
       color: '#333'
     },
-    { 
-      icon: <Facebook />, 
-      url: 'https://www.facebook.com/mahmoud.tamer.904', 
+    {
+      icon: <Facebook />,
+      label: 'Facebook',
+      url: 'https://www.facebook.com/mahmoud.tamer.904',
       color: '#1877f2'
     },
-    { 
-      icon: <WhatsApp />, 
+    {
+      icon: <WhatsApp />,
+      label: 'WhatsApp',
       url: 'https://wa.me/201159603177',
       color: '#25d366'
     },
   ];
   return (
-    <Box 
-      component="footer" 
+    <Box
+      component="footer"
       sx={{
         py: 3,
         px: 2,
@@ -50,18 +58,20 @@ const Footer = () => {
           }}
         >
           <Typography variant="body1" color="text.secondary" align="center">
-            Made by Mahmoud Badr 2024
+            {t('footer.madeBy')} 2024
           </Typography>
           <Box sx={{ display: 'flex', gap: 2 }}>
-            {socialLinks.map((social, index) => (
+            {socialLinks.map((social) => (
               <Box
-                key={index}
+                key={social.label}
                 component="a"
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={social.label}
                 sx={{
                   color: social.color,
+                  display: 'inline-flex',
                   '&:hover': {
                     color: 'primary.main',
                     transform: 'scale(1.2)',
