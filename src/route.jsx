@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import SectionPage from './pages/SectionPage';
 import FavoritesPage from './components/FavoritesPage';
@@ -17,6 +17,9 @@ const Router = () => {
       <Route path="/interview/session" element={<InterviewSessionPage />} />
       <Route path="/interview/review/:id" element={<InterviewReviewPage />} />
       <Route path="/progress" element={<ProgressPage />} />
+      {/* An unknown path rendered nothing at all, leaving a header and footer
+          around a blank page. Send it home instead. */}
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 };

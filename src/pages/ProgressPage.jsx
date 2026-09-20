@@ -63,7 +63,7 @@ const ProgressPage = () => {
   return (
     <Container maxWidth={false} sx={{ width: '100%', px: { xs: 2, sm: 4, md: 8 }, py: 4 }}>
       <Box sx={{ maxWidth: '800px', margin: '0 auto', width: '100%' }}>
-        <Typography variant="h4" align="center" sx={{ color: 'text.primary', mb: 1, fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' } }}>
+        <Typography variant="h4" component="h1" align="center" sx={{ color: 'text.primary', mb: 1, fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' } }}>
           {t('progress.title')}
         </Typography>
         <Typography align="center" sx={{ color: 'text.secondary', mb: 3 }}>

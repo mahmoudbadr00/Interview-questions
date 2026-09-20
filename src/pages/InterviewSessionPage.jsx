@@ -26,7 +26,7 @@ import { resolveStep } from '../interview/plan';
 import { COMPARE_MODE, PRESENTATION } from '../interview/config';
 import { recordAttempt } from '../progress/store';
 import { useSpeechSynthesis } from '../voice/useSpeechSynthesis';
-import { useSpeechRecognition } from '../voice/useSpeechRecognition';
+import { useAnswerRecording } from '../voice/useAnswerRecording';
 import TimerBar from '../components/interview/TimerBar';
 import VoiceControls from '../components/interview/VoiceControls';
 import AnswerInput from '../components/interview/AnswerInput';
@@ -55,7 +55,8 @@ const InterviewSessionPage = () => {
   const [now, setNow] = useState(Date.now());
 
   const tts = useSpeechSynthesis(contentLanguage);
-  const stt = useSpeechRecognition(contentLanguage);
+  // null while answering by voice is disabled — every caller below is optional.
+  const stt = useAnswerRecording(contentLanguage);
 
   const immediate = session?.config.compareMode === COMPARE_MODE.immediate;
   const showText = session?.config.presentation !== PRESENTATION.voice || !tts.supported;
@@ -82,7 +83,7 @@ const InterviewSessionPage = () => {
   useEffect(() => {
     if (session?.status === SESSION_STATUS.finished) {
       tts.stop();
-      stt.reset();
+      stt?.reset();
       navigate(`/interview/review/${session.id}`, { replace: true });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -93,7 +94,7 @@ const InterviewSessionPage = () => {
   useEffect(() => {
     setText(existing?.text ?? '');
     setUsedVoice(false);
-    stt.reset();
+    stt?.reset();
     if (speakQuestions && promptText && phase === 'answer') tts.speak(promptText);
     else tts.stop();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -101,7 +102,7 @@ const InterviewSessionPage = () => {
 
   const stopVoice = useCallback(() => {
     tts.stop();
-    stt.reset();
+    stt?.reset();
   }, [tts, stt]);
 
   const submit = () => {
@@ -205,13 +206,16 @@ const InterviewSessionPage = () => {
               onChange={setText}
               stt={stt}
               onVoiceUsed={() => setUsedVoice(true)}
-              speakingPractice={session.config.speakingPractice}
+              // Older persisted sessions may still carry the flag; the hint
+              // asks the candidate to answer out loud, so it only shows while
+              // answering by voice exists.
+              speakingPractice={Boolean(stt) && session.config.speakingPractice}
             />
             <Stack direction="row" flexWrap="wrap" sx={{ gap: 1, mt: 2 }}>
-              <Button variant="contained" onClick={submit} disabled={!text.trim() || stt.isRecording}>
+              <Button variant="contained" onClick={submit} disabled={!text.trim() || Boolean(stt?.isRecording)}>
                 {t('session.submit')}
               </Button>
-              <Button variant="outlined" color="inherit" onClick={skip} disabled={stt.isRecording}>
+              <Button variant="outlined" color="inherit" onClick={skip} disabled={Boolean(stt?.isRecording)}>
                 {t('session.skip')}
               </Button>
             </Stack>

@@ -124,6 +124,7 @@ const SectionPage = () => {
       <Box sx={{ maxWidth: '800px', margin: '0 auto', width: '100%' }}>
         <Typography
           variant="h4"
+          component="h1"
           gutterBottom
           align="center"
           sx={{

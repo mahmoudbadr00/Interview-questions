@@ -7,6 +7,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import { useLanguage } from '../../i18n/useLanguage';
 import { suggestionFor } from '../../interview/compare';
+import { FEATURES } from '../../lib/features';
 import AnswerText from '../AnswerText';
 import { Alternatives } from '../QuestionExtras';
 
@@ -42,7 +43,9 @@ const ComparisonPanel = ({ answer, resolved, localizeContent, defaultShowExpecte
 
       <Typography variant="subtitle2" sx={{ fontWeight: 700, color: 'text.secondary', textAlign: 'start' }}>
         {t('compare.yourAnswer')}
-        {answer && !skipped ? (
+        {/* How the answer was entered only says something while there is more
+            than one way to enter it. */}
+        {FEATURES.voiceAnswerRecording && answer && !skipped ? (
           <Chip size="small" sx={{ marginInlineStart: 1 }} label={answer.inputMode === 'voice' ? t('compare.viaVoice') : t('compare.viaText')} />
         ) : null}
       </Typography>

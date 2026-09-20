@@ -29,7 +29,7 @@ import {
   MAX_QUESTIONS,
   MIN_QUESTIONS,
   PRESENTATION,
-  PRESETS,
+  AVAILABLE_PRESETS,
   QUESTION_COUNTS,
   QUESTION_MODE,
   COMPARE_MODE,
@@ -44,6 +44,7 @@ import { useInterviewSession } from '../interview/useInterviewSession';
 import { findSession } from '../interview/session';
 import { computeStats, loadProgress, planWeight } from '../progress/store';
 import { isSpeechSynthesisSupported } from '../voice/support';
+import { FEATURES } from '../lib/features';
 
 const Field = ({ label, hint, children }) => (
   <Box sx={{ mb: 3 }}>
@@ -179,7 +180,7 @@ const InterviewSetupPage = () => {
   return (
     <Container maxWidth={false} sx={{ width: '100%', px: { xs: 2, sm: 4, md: 8 }, py: 4 }}>
       <Box sx={{ maxWidth: '800px', margin: '0 auto', width: '100%' }}>
-        <Typography variant="h4" align="center" sx={{ color: 'text.primary', mb: 1, fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' } }}>
+        <Typography variant="h4" component="h1" align="center" sx={{ color: 'text.primary', mb: 1, fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' } }}>
           {t('interview.title')}
         </Typography>
         <Typography align="center" sx={{ color: 'text.secondary', mb: 3 }}>
@@ -209,7 +210,7 @@ const InterviewSetupPage = () => {
           {t('interview.presets')}
         </Typography>
         <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr' }, gap: 1.5, mb: 4 }}>
-          {PRESETS.map((preset) => (
+          {AVAILABLE_PRESETS.map((preset) => (
             <Paper
               key={preset.id}
               component="button"
@@ -366,12 +367,14 @@ const InterviewSetupPage = () => {
             render={(v) => t(`interview.presentation.${v}`)}
             ariaLabel={t('interview.presentation')}
           />
-          <Box sx={{ mt: 1 }}>
-            <FormControlLabel
-              control={<Switch checked={config.speakingPractice} onChange={(e) => update({ speakingPractice: e.target.checked })} />}
-              label={t('interview.speakingPractice')}
-            />
-          </Box>
+          {FEATURES.voiceAnswerRecording ? (
+            <Box sx={{ mt: 1 }}>
+              <FormControlLabel
+                control={<Switch checked={config.speakingPractice} onChange={(e) => update({ speakingPractice: e.target.checked })} />}
+                label={t('interview.speakingPractice')}
+              />
+            </Box>
+          ) : null}
         </Field>
 
         {!canStart ? (

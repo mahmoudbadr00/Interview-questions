@@ -1,6 +1,7 @@
 // interview/config.js
 // Everything the setup screen can choose from, plus presets. Pure data.
 import { sections, SOFT_SKILL_SECTIONS } from '../data/sections.js';
+import { FEATURES } from '../lib/features.js';
 
 export const INTERVIEW_TYPE = {
   technical: 'technical',
@@ -113,6 +114,15 @@ export const PRESETS = [
   },
 ];
 
+/**
+ * Presets offered by this build. A preset whose value depends on answering by
+ * voice is hidden while that feature is off, rather than shipping a preset
+ * that cannot deliver what its description promises.
+ */
+export const AVAILABLE_PRESETS = PRESETS.filter(
+  (preset) => FEATURES.voiceAnswerRecording || !preset.config.speakingPractice
+);
+
 export const applyPreset = (presetId) => {
   const preset = PRESETS.find((p) => p.id === presetId);
   return preset ? { ...DEFAULT_CONFIG, ...preset.config } : { ...DEFAULT_CONFIG };
@@ -129,5 +139,8 @@ export const sanitizeConfig = (input) => {
   if (!Object.values(COMPARE_MODE).includes(config.compareMode)) config.compareMode = COMPARE_MODE.after;
   if (!Object.values(PRESENTATION).includes(config.presentation)) config.presentation = PRESENTATION.text;
   if (config.language !== 'ar' && config.language !== 'en') config.language = null;
+  // Speaking practice asks the candidate to answer out loud, which only makes
+  // sense while voice answering exists.
+  if (!FEATURES.voiceAnswerRecording) config.speakingPractice = false;
   return config;
 };
