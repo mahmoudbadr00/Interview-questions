@@ -57,9 +57,9 @@ const Footer = () => {
             gap: 2
           }}
         >
-          <Typography variant="body1" color="text.secondary" align="center">
-            {t('footer.madeBy')} 2024
-          </Typography>
+         <Typography variant="body1" color="text.secondary" align="center">
+  © {new Date().getFullYear()} {t('footer.madeBy')}
+</Typography>
           <Box sx={{ display: 'flex', gap: 2 }}>
             {socialLinks.map((social) => (
               <Box
