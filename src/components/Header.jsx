@@ -9,6 +9,17 @@ import { useState, useEffect } from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useLanguage } from '../i18n/useLanguage';
 
+// Shared nav button styling. Tighter hit area + smaller glyphs on phones so the
+// whole action row (switcher + 4 icons) stays inside a 320px viewport.
+const navButtonSx = {
+  color: '#ecf0f1',
+  flexShrink: 0,
+  padding: { xs: '5px', sm: '8px' },
+  transition: 'all 0.2s ease',
+  '& .MuiSvgIcon-root': { fontSize: { xs: '1.25rem', sm: '1.5rem' } },
+  '&:hover': { color: '#3498db' },
+};
+
 const Header = () => {
   const navigate = useNavigate();
   const { t } = useLanguage();
@@ -49,8 +60,10 @@ const Header = () => {
         sx={{
           display: 'flex',
           justifyContent: 'space-between',
-          gap: 1,
-          padding: { xs: '0.5rem 1rem', sm: '0.5rem 2rem' },
+          flexWrap: 'nowrap',
+          gap: { xs: 0.5, sm: 1 },
+          minHeight: { xs: 56, sm: 64 },
+          padding: { xs: '0.5rem 0.625rem', sm: '0.5rem 2rem' },
         }}
       >
         <Typography
@@ -58,9 +71,16 @@ const Header = () => {
           component="button"
           onClick={() => navigate('/')}
           sx={{
+            // The title is the only flexible item: it shrinks and ellipsizes
+            // instead of pushing the action icons out of the viewport.
+            flex: '0 1 auto',
+            minWidth: 0,
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
             fontWeight: 700,
             color: '#ecf0f1',
-            fontSize: { xs: '1.25rem', sm: '1.8rem' },
+            fontSize: { xs: '1.1rem', sm: '1.8rem' },
             letterSpacing: '1px',
             textShadow: '1px 1px 2px rgba(0,0,0,0.2)',
             background: 'none',
@@ -74,14 +94,21 @@ const Header = () => {
           {t('app.name')}
         </Typography>
 
-        <Box sx={{ display: 'flex', gap: { xs: 0.5, sm: 1.5 }, alignItems: 'center' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            flexShrink: 0,
+            gap: { xs: 0, sm: 1 },
+            alignItems: 'center',
+          }}
+        >
           <LanguageSwitcher />
 
           <Tooltip title={t('nav.interview')}>
             <IconButton
               onClick={() => navigate('/interview')}
               aria-label={t('nav.interview')}
-              sx={{ color: '#ecf0f1', '&:hover': { color: '#3498db' } }}
+              sx={navButtonSx}
             >
               <RecordVoiceOverIcon />
             </IconButton>
@@ -91,7 +118,7 @@ const Header = () => {
             <IconButton
               onClick={() => navigate('/progress')}
               aria-label={t('nav.progress')}
-              sx={{ color: '#ecf0f1', '&:hover': { color: '#3498db' } }}
+              sx={navButtonSx}
             >
               <InsightsIcon />
             </IconButton>
@@ -101,12 +128,13 @@ const Header = () => {
             <IconButton
               onClick={() => navigate('/favorites')}
               aria-label={t('nav.favorites')}
-              sx={{
-                color: '#ecf0f1',
-                '&:hover': { color: '#3498db' },
-              }}
+              sx={navButtonSx}
             >
-              <Badge badgeContent={favoritesCount} color="error">
+              <Badge
+                badgeContent={favoritesCount}
+                color="error"
+                sx={{ '& .MuiBadge-badge': { fontSize: { xs: '0.6rem', sm: '0.75rem' } } }}
+              >
                 <FavoriteIcon />
               </Badge>
             </IconButton>
@@ -117,15 +145,8 @@ const Header = () => {
               onClick={() => navigate('/')}
               aria-label={t('nav.home')}
               sx={{
-                cursor: 'pointer',
-                color: '#ecf0f1',
-                fontSize: { xs: '1.5rem', sm: '1.6rem' },
-                fontWeight: 500,
-                transition: 'all 0.2s ease',
-                '&:hover': {
-                  color: '#3498db',
-                  transform: 'translateY(-2px)',
-                },
+                ...navButtonSx,
+                '&:hover': { color: '#3498db', transform: 'translateY(-2px)' },
               }}
             >
               <HomeIcon />

@@ -6,7 +6,8 @@ import { LANGUAGES, languageMeta } from '../i18n/translations';
 
 /**
  * Compact AR | EN toggle. Fixed width per option so switching never shifts
- * the surrounding toolbar layout.
+ * the surrounding toolbar layout. On phones the decorative globe is dropped
+ * and the pills tighten, to leave room for the nav icons next to it.
  */
 const LanguageSwitcher = () => {
   const { language, setLanguage, t } = useLanguage();
@@ -18,14 +19,18 @@ const LanguageSwitcher = () => {
       sx={{
         display: 'flex',
         alignItems: 'center',
-        gap: 0.5,
-        px: 0.75,
+        flexShrink: 0,
+        gap: { xs: 0.25, sm: 0.5 },
+        px: { xs: 0.25, sm: 0.75 },
         py: 0.25,
+        mr: { xs: 0.25, sm: 0 },
         borderRadius: 2,
         border: '1px solid rgba(236, 240, 241, 0.35)',
       }}
     >
-      <TranslateIcon sx={{ fontSize: 18, color: '#ecf0f1', opacity: 0.8 }} />
+      <TranslateIcon
+        sx={{ display: { xs: 'none', sm: 'block' }, fontSize: 18, color: '#ecf0f1', opacity: 0.8 }}
+      />
       {LANGUAGES.map((code) => {
         const isActive = code === language;
         return (
@@ -38,11 +43,11 @@ const LanguageSwitcher = () => {
               aria-pressed={isActive}
               lang={code}
               sx={{
-                minWidth: 34,
-                px: 0.75,
+                minWidth: { xs: 26, sm: 34 },
+                px: { xs: 0.4, sm: 0.75 },
                 py: 0.25,
                 borderRadius: 1.5,
-                fontSize: '0.8rem',
+                fontSize: { xs: '0.7rem', sm: '0.8rem' },
                 fontWeight: 700,
                 lineHeight: 1.6,
                 letterSpacing: '0.04em',
